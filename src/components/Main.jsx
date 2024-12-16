@@ -1,3 +1,7 @@
+// CONTEXTS IMPORT
+import { useGlobalContext } from "../contexts/GlobalContext";
+
+
 // COMPONENTS IMPORT
 import ResultSection from "../components/ResultSection";
 
@@ -5,6 +9,9 @@ import ResultSection from "../components/ResultSection";
 // COMPONENT EXPORT
 
 export default function Main() {
+
+    // IMPORT CONTEXT
+    const { data } = useGlobalContext();
 
     return <>
         <main>

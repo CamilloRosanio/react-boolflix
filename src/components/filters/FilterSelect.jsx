@@ -7,11 +7,13 @@ import { useState } from 'react';
 
 export default function FilterSelect() {
 
-    const [selectValue, setselectValue] = useState('');
+    const [Data, setData] = useState('');
 
     const handleInputChange = (e) => {
-        const newselectValue = e.target.value;
-        setselectValue(newselectValue);
+        const newData = e.target.value;
+        setData(newData);
+
+        console.log(Data);
     }
 
     return <>

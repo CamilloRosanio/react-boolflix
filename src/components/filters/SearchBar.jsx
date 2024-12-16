@@ -12,6 +12,8 @@ export default function SearchBar() {
     const handleInputChange = (e) => {
         const newData = e.target.value;
         setData(newData);
+
+        console.log(Data);
     }
 
     return <>

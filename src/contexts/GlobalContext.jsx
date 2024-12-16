@@ -8,7 +8,7 @@ const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
 
 
 // # COMPONENTS IMPORT
-
+import SearchBar from '../components/filters/SearchBar';
 
 // # CONTEXT VARIABLE
 const GlobalContext = createContext();
@@ -20,7 +20,7 @@ export const GlobalContextProvider = ({ children }) => {
 
     // USE-STATE DATA
     const [globalData, setGlobalData] = useState({
-        array: [],
+        data: '',
     });
 
     // INIT USE-EFFECT
