@@ -6,10 +6,15 @@ import SearchBar from "./SearchBar";
 // COMPONENT EXPORT
 
 export default function Filters() {
+
+
+
     return <>
-        <div className='filters debug'>
+        <form className='filters debug'>
             <FilterSelect />
             <SearchBar />
-        </div>
+
+            <button className="button">Search</button>
+        </form>
     </>
 }

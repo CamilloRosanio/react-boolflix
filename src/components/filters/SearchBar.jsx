@@ -2,6 +2,6 @@
 
 export default function SearchBar() {
     return <>
-        <p className="debug">search bar</p>
+        <input type="text" className="input" id='SearchBar' placeholder="Type here to search" />
     </>
 }

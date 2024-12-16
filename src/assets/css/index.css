@@ -47,6 +47,15 @@ main {
   flex-grow: 1;
 }
 
+.button {
+  color: white;
+  background-color: rgb(209, 0, 0);
+  font-weight: bold;
+  padding: .3rem 2rem;
+  border-radius: 30px;
+  border: none;
+}
+
 
 
 /******************************************
@@ -63,11 +72,17 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.input {
+  padding: .3rem 2rem;
+  border-radius: 30px;
+  border: none;
 }
 
 .resultSection {
-  margin: 4rem 0;
+  margin: 3rem 0;
 }
 
 .cardsGallery h2 {
