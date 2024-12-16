@@ -2,10 +2,6 @@
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-// CONTEXTS
-import { GlobalContextProvider } from "./contexts/GlobalContext";
-
-
 // PAGES
 import HomePage from "./pages/HomePage";
 
@@ -15,9 +11,7 @@ import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
-      <GlobalContextProvider>
-        <HomePage />
-      </GlobalContextProvider>
+      <HomePage />
     </>
   )
 }
