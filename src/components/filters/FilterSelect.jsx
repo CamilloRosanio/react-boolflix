@@ -1,5 +1,6 @@
-// UTILITY
-import { useState } from 'react';
+// CONTEXTS IMPORT
+// Importo il CONTEXT che devo aggiornare tramite questo input
+import { useGlobalContext } from '../../contexts/GlobalContext';
 
 
 
@@ -7,13 +8,12 @@ import { useState } from 'react';
 
 export default function FilterSelect() {
 
-    const [Data, setData] = useState('');
+    // Destrutturo il CONTEXT prendendo solo la FUNCTION (dal CONTEXT) che aggiorna il valore relativo a questo input
+    const { updateSelectValue, selectValue } = useGlobalContext();
 
+    // Dichiaro la funzione triggerata da ON-CHANGE, che esegue la funzione presa dal CONTEXT che a sua volta aggiorna il valore del CONTEXT riguardante questo input
     const handleInputChange = (e) => {
-        const newData = e.target.value;
-        setData(newData);
-
-        console.log(Data);
+        updateSelectValue(e.target.value);
     }
 
     return <>

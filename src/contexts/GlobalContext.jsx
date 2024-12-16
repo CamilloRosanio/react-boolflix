@@ -8,7 +8,6 @@ const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
 
 
 // # COMPONENTS IMPORT
-import SearchBar from '../components/filters/SearchBar';
 
 // # CONTEXT VARIABLE
 const GlobalContext = createContext();
@@ -18,10 +17,27 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
 
+    // Dichiaro lo USE-STATE dei VALUE degli inputs
+    const [selectValue, setSelectValue] = useState("");
+    const [searchbarValue, setSearchbarValue] = useState("");
+
+    // Dichiaro le funzioni per aggiornare lo USE-STATE dei VALUE degli inputs
+    const updateSelectValue = (newSelect) => {
+        setSelectValue(newSelect);
+        console.log('New VALUE: ' + selectValue);
+    };
+    const updateSearchbarValue = (newTerm) => {
+        setSearchbarValue(newTerm);
+        console.log('New VALUE: ' + searchbarValue);
+    };
+
     // USE-STATE DATA
-    const [globalData, setGlobalData] = useState({
-        data: '',
-    });
+    const globalData = {
+        selectValue,
+        searchbarValue,
+        updateSelectValue,
+        updateSearchbarValue,
+    };
 
     // INIT USE-EFFECT
     useEffect(() => {

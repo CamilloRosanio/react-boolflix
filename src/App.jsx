@@ -1,7 +1,3 @@
-// UTILITY
-// import 'bootstrap/dist/css/bootstrap.min.css'
-
-
 // PAGES
 import HomePage from "./pages/HomePage";
 

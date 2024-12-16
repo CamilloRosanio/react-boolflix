@@ -11,7 +11,7 @@ import ResultSection from "../components/ResultSection";
 export default function Main() {
 
     // IMPORT CONTEXT
-    const { data } = useGlobalContext();
+    const { searchbarValue } = useGlobalContext();
 
     return <>
         <main>
