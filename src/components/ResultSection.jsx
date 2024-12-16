@@ -5,6 +5,7 @@ import Card from "./Card";
 // COMPONENT EXPORT
 
 export default function CardsList({ sectionTitle }) {
+
     return <>
         <div className="container">
             <div className="resultSection">

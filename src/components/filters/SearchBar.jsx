@@ -17,6 +17,7 @@ export default function SearchBar() {
     }
 
     return <>
+        {/* Ciascun INPUT deve avere un valore dinamico del VALUE, altrimenti non viene aggiornato. In questo caso è assegnato il valore dinamico preso dallo USE-STATE del CONTEXT */}
         <input type="text" className="input" id='SearchBar' placeholder="Type here to search" value={searchbarValue} onChange={handleInputChange} />
     </>
 };
