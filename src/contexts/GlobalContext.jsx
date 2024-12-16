@@ -2,9 +2,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 
-// ENV IMPORTS
+// # ENV IMPORTS
 const apiKey = import.meta.env.VITE_API_THEMOVIEDB_APIKEY;
 const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
+
+
+// # COMPONENTS IMPORT
 
 
 // # CONTEXT VARIABLE
@@ -15,16 +18,17 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
 
-    // // USE-STATE DATA
+    // USE-STATE DATA
     const [globalData, setGlobalData] = useState({
         array: [],
     });
 
     // INIT USE-EFFECT
     useEffect(() => {
-        console.log('INIT useEffect executed.')
+        console.log('INIT GlobalContext useEffect executed.')
     }, []);
 
+    // RETURN
     return <>
         <GlobalContext.Provider value={globalData}>{children}</GlobalContext.Provider>
     </>

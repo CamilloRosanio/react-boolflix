@@ -7,8 +7,6 @@ import SearchBar from "./SearchBar";
 
 export default function Filters() {
 
-
-
     return <>
         <form className='filters debug'>
             <FilterSelect />

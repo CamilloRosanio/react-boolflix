@@ -7,15 +7,11 @@ import { useState } from 'react';
 
 export default function FilterSelect() {
 
-    const [inputValue, setInputValue] = useState('');
+    const [selectValue, setselectValue] = useState('');
 
     const handleInputChange = (e) => {
-
-        const newInputValue = e.target.value;
-
-        setInputValue(newInputValue);
-
-        console.log(`INPUT Filter Select value set to: ${inputValue}`);
+        const newselectValue = e.target.value;
+        setselectValue(newselectValue);
     }
 
     return <>
@@ -26,4 +22,4 @@ export default function FilterSelect() {
             <option value="Test Option 3">Test Option 3</option>
         </select>
     </>
-}
+};
