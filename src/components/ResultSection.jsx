@@ -7,7 +7,7 @@ import Card from "./Card";
 export default function CardsList({ sectionTitle }) {
     return <>
         <div className="container">
-            <div className="cardsGallery">
+            <div className="resultSection">
                 <h2 className="debug">{sectionTitle}</h2>
 
                 <div className="List">
