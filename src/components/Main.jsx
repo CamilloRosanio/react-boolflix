@@ -50,7 +50,7 @@ export default function Main() {
 
     return <>
         <main>
-            <h3 id="researchRecap">{searchbarValue ? `Risultati per: "${searchbarValue}"` : 'Fai una ricerca'}</h3>
+            <h3 id="researchRecap">{searchbarValue ? `Results for: "${searchbarValue}"` : 'Search for a movie or a Series'}</h3>
 
             {/* RESULTS - MOVIES */}
 

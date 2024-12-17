@@ -1,12 +1,12 @@
 // # UTILITY
 import { createContext, useContext, useState, useEffect } from 'react';
+const publicApiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDQxMDU5ZGFhY2VjNzI3NjExOTQzNjIzNGQ0MTFmOCIsIm5iZiI6MTczNDM0NTU3MC4zMTAwMDAyLCJzdWIiOiI2NzYwMDM2MmZiY2E4ZTMxNmVhYjBkMGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Pte0cJtbEFRK7t9bfKQygSQqa9xCSpkP__UcO0PBLjU';
 
 
 // # ENV IMPORTS
 const apiKey = import.meta.env.VITE_API_THEMOVIEDB_APIREADACCESSTOKEN;
 const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
 
-const publicApiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDQxMDU5ZGFhY2VjNzI3NjExOTQzNjIzNGQ0MTFmOCIsIm5iZiI6MTczNDM0NTU3MC4zMTAwMDAyLCJzdWIiOiI2NzYwMDM2MmZiY2E4ZTMxNmVhYjBkMGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Pte0cJtbEFRK7t9bfKQygSQqa9xCSpkP__UcO0PBLjU';
 
 
 // # CONTEXT VARIABLE
@@ -21,7 +21,7 @@ export const GlobalContextProvider = ({ children }) => {
     useEffect(() => {
         crudIndexMovies();
         crudIndexSeries();
-        console.log('INIT GlobalContext useEffect executed.')
+        // console.log('INIT GlobalContext useEffect executed.')
     }, []);
 
     // USE-STATE FETCH DATA
@@ -64,8 +64,8 @@ export const GlobalContextProvider = ({ children }) => {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                console.log('CRUD: Index (Fetch Movies) executed.');
-                console.log(json.results);
+                // console.log('CRUD: Index (Fetch Movies) executed.');
+                // console.log(json.results);
                 const updateMovies = json.results;
                 setMovies(updateMovies);
             })
@@ -86,35 +86,13 @@ export const GlobalContextProvider = ({ children }) => {
         fetch(url, options)
             .then(res => res.json())
             .then(json => {
-                console.log('CRUD: Index (Fetch Series) executed.');
-                console.log(json.results);
+                // console.log('CRUD: Index (Fetch Series) executed.');
+                // console.log(json.results);
                 const updateSeries = json.results;
                 setSeries(updateSeries);
             })
             .catch(err => console.error(err));
     }
-
-    // FETCH CATEGORIES
-    // const crudIndexCategories = () => {
-    //     const url = `https://api.themoviedb.org/3/search/tv?query=${searchbarValue}&language=it_IT`;
-    //     const options = {
-    //         method: 'GET',
-    //         headers: {
-    //             accept: 'application/json',
-    //             Authorization: `Bearer ${publicApiKey}`
-    //         }
-    //     };
-
-    //     fetch(url, options)
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             console.log('CRUD: Index (Fetch Series) executed.');
-    //             console.log(json.results);
-    //             const updateSeries = json.results;
-    //             setSeries(updateSeries);
-    //         })
-    //         .catch(err => console.error(err));
-    // }
 
     // USE-STATE DATA
     const globalData = {
@@ -126,6 +104,8 @@ export const GlobalContextProvider = ({ children }) => {
         crudIndexSeries,
         movies,
         series,
+        setMovies,
+        setSeries,
     };
 
     // RETURN

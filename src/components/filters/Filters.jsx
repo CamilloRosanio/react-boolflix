@@ -12,7 +12,7 @@ import { useGlobalContext } from "../../contexts/GlobalContext";
 export default function Filters(fetch1, fetch2) {
 
     // IMPORT CONTEXT
-    const { crudIndexMovies, crudIndexSeries } = useGlobalContext();
+    const { crudIndexMovies, crudIndexSeries, } = useGlobalContext();
 
     // HANDLE SUBMIT
     const handleSubmit = (e) => {
