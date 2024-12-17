@@ -39,7 +39,7 @@ export default function Main() {
                         img={apiImg + item.poster_path}
                         title={item.title}
                         original_title={item.original_title}
-                        vote={item.vote}
+                        vote={Math.round(item.vote_average)}
                         description={item.overview.slice(0, 50) + '..'}
                     />
                 )}
@@ -56,7 +56,7 @@ export default function Main() {
                         img={apiImg + item.poster_path}
                         title={item.name}
                         original_title={item.original_name}
-                        vote={item.vote}
+                        vote={Math.round(item.vote_average)}
                         description={item.overview.slice(0, 70) + '..'}
                     />
                 )}

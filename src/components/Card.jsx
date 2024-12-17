@@ -20,7 +20,7 @@ export default function Card({ keyRoot, img, id, title, original_title, vote, de
                 </div>
             }
 
-            <div className="cardHoover debug hidden">
+            <div className="cardHoover debug">
                 <h3>{title}</h3>
                 <p>{original_title}</p>
                 <p>{vote}</p>

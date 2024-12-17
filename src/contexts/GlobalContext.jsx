@@ -6,6 +6,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const apiKey = import.meta.env.VITE_API_THEMOVIEDB_APIREADACCESSTOKEN;
 const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
 
+const publicApiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDQxMDU5ZGFhY2VjNzI3NjExOTQzNjIzNGQ0MTFmOCIsIm5iZiI6MTczNDM0NTU3MC4zMTAwMDAyLCJzdWIiOiI2NzYwMDM2MmZiY2E4ZTMxNmVhYjBkMGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Pte0cJtbEFRK7t9bfKQygSQqa9xCSpkP__UcO0PBLjU';
+
 
 // # CONTEXT VARIABLE
 const GlobalContext = createContext();
@@ -55,7 +57,7 @@ export const GlobalContextProvider = ({ children }) => {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: `Bearer ${apiKey}`
+                Authorization: `Bearer ${publicApiKey}`
             }
         };
 
@@ -77,7 +79,7 @@ export const GlobalContextProvider = ({ children }) => {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: `Bearer ${apiKey}`
+                Authorization: `Bearer ${publicApiKey}`
             }
         };
 
