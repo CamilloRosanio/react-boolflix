@@ -16,17 +16,6 @@
 
 
 /******************************************
-# CUSTOM VALUES
-/******************************************/
-
-:root {
-  --galleryGap: 2%;
-  --cardWidth: 32%;
-}
-
-
-
-/******************************************
   # UTILITY
   /******************************************/
 
@@ -90,13 +79,14 @@ main {
 }
 
 .List {
+  padding: 1.5rem 0;
   display: flex;
-  justify-content: space-between;
-  gap: var(--galleryGap);
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .Card {
-  width: var(--cardWidth);
+  width: 32%;
   /* min-height: 550px; */
 }
 

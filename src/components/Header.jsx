@@ -10,6 +10,7 @@ export default function Header() {
             <h1 className="debug">Boolflix</h1>
 
             <Filters />
+
         </div>
     </>
 }

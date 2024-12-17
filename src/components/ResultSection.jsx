@@ -1,20 +1,14 @@
-// COMPONENTS IMPORT
-import Card from "./Card";
-
-
 // COMPONENT EXPORT
 
-export default function CardsList({ sectionTitle }) {
+export default function CardsList({ keyRoot, sectionTitle, children }) {
 
     return <>
-        <div className="container">
+        <div className="container" key={keyRoot}>
             <div className="resultSection">
                 <h2 className="debug">{sectionTitle}</h2>
 
                 <div className="List">
-                    <Card />
-                    <Card />
-                    <Card />
+                    {children}
                 </div>
             </div>
         </div>

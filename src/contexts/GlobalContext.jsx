@@ -17,17 +17,42 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
 
-    // USE-STATE FETCH DATA
-    const [fetchMovies, setFetchMovies] = useState([]);
-
     // INIT USE-EFFECT
     useEffect(() => {
         crudIndexMovies();
+        crudIndexSeries();
         console.log('INIT GlobalContext useEffect executed.')
     }, []);
 
+    // USE-STATE FETCH DATA
+    const [movies, setMovies] = useState([]);
+    const [series, setSeries] = useState([]);
+
+    /*****************************************************************
+    # INPUTS USE STATE - START
+    *****************************************************************/
+
+    // Dichiaro lo USE-STATE dei VALUE degli inputs
+    const [selectValue, setSelectValue] = useState("");
+    const [searchbarValue, setSearchbarValue] = useState("harry");
+
+    // Dichiaro le funzioni per aggiornare lo USE-STATE dei VALUE degli inputs
+    const updateSelectValue = (newSelect) => {
+        setSelectValue(newSelect);
+        // console.log('New VALUE Select: ' + selectValue);
+    };
+    const updateSearchbarValue = (newTerm) => {
+        setSearchbarValue(newTerm);
+        // console.log('New VALUE Searchbar: ' + searchbarValue);
+    };
+
+    /*****************************************************************
+    # INPUTS USE STATE - END
+    *****************************************************************/
+
+    // FETCH MOVIES
     const crudIndexMovies = () => {
-        const url = 'https://api.themoviedb.org/3/search/movie?query=harry&language=it_IT';
+        const url = `https://api.themoviedb.org/3/search/movie?query=${searchbarValue}&language=it_IT`;
         const options = {
             method: 'GET',
             headers: {
@@ -40,26 +65,34 @@ export const GlobalContextProvider = ({ children }) => {
             .then(res => res.json())
             .then(json => {
                 console.log('CRUD: Index (Fetch Movies) executed.');
-                console.log(json);
-                const updateFetchMovies = json.results;
-                setFetchMovies(updateFetchMovies);
+                console.log(json.results);
+                const updateMovies = json.results;
+                setMovies(updateMovies);
             })
             .catch(err => console.error(err));
     }
 
-    // Dichiaro lo USE-STATE dei VALUE degli inputs
-    const [selectValue, setSelectValue] = useState("");
-    const [searchbarValue, setSearchbarValue] = useState("");
+    // FETCH SERIES
+    const crudIndexSeries = () => {
+        const url = `https://api.themoviedb.org/3/search/tv?query=${searchbarValue}&language=it_IT`;
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${apiKey}`
+            }
+        };
 
-    // Dichiaro le funzioni per aggiornare lo USE-STATE dei VALUE degli inputs
-    const updateSelectValue = (newSelect) => {
-        setSelectValue(newSelect);
-        // console.log('New VALUE Select: ' + selectValue);
-    };
-    const updateSearchbarValue = (newTerm) => {
-        setSearchbarValue(newTerm);
-        // console.log('New VALUE Searchbar: ' + searchbarValue);
-    };
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                console.log('CRUD: Index (Fetch Series) executed.');
+                console.log(json.results);
+                const updateSeries = json.results;
+                setSeries(updateSeries);
+            })
+            .catch(err => console.error(err));
+    }
 
     // USE-STATE DATA
     const globalData = {
@@ -67,8 +100,10 @@ export const GlobalContextProvider = ({ children }) => {
         searchbarValue,
         updateSelectValue,
         updateSearchbarValue,
-
-        fetchMovies,
+        crudIndexMovies,
+        crudIndexSeries,
+        movies,
+        series,
     };
 
     // RETURN
@@ -80,30 +115,3 @@ export const GlobalContextProvider = ({ children }) => {
 
 // # USE-CONTEXT EXPORT
 export const useGlobalContext = () => useContext(GlobalContext);
-
-
-
-
-
-
-
-
-
-// FETCH
-
-// const url = `${apiURL}`;
-// const options = {
-//     method: 'GET',
-//     headers: {
-//         accept: 'application/json',
-//         Authorization: `Bearer ${apiKey}`
-//     }
-// };
-
-// fetch(url, options)
-//     .then(res => res.json())
-//     .then(json => {
-//         console.log('FETCH executed at:');
-//         console.log(`${apiURL}`);
-//     })
-//     .catch(err => console.error(err));

@@ -1,9 +1,15 @@
 // COMPONENTS IMPORT
 import ResultSection from "../components/ResultSection";
+import Card from "./Card";
 
 
 // CONTEXTS IMPORT
 import { useGlobalContext } from "../contexts/GlobalContext";
+
+
+// UTILITY
+const keyRootMovies = "movie_";
+const keyRootSeries = "serie_";
 
 
 // COMPONENT EXPORT
@@ -11,16 +17,39 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 export default function Main() {
 
     // IMPORT CONTEXT
-    const { fetchMovies } = useGlobalContext();
+    const { movies, series } = useGlobalContext();
 
     return <>
         <main>
 
-            {/* MAPPING DI TEST */}
-            {fetchMovies.map((movie, index) => <p key={movie.id}>{movie.title}</p>)}
+            <ResultSection
+                key={keyRootMovies}
+                sectionTitle='Movies'
+            >
+                {movies.map(item =>
+                    <Card
+                        key={keyRootMovies + item.id}
+                        title={item.title}
+                        original_title={item.original_title}
+                        vote={item.vote}
+                    />
+                )}
+            </ResultSection>
 
-            <ResultSection sectionTitle='Movies' />
-            <ResultSection sectionTitle='Series' />
-        </main>
+            <ResultSection
+                key={keyRootSeries}
+                sectionTitle='Series'
+            >
+                {series.map(item =>
+                    <Card
+                        key={keyRootMovies + item.id}
+                        title={item.name}
+                        original_title={item.original_name}
+                        vote={item.vote}
+                    />
+                )}
+            </ResultSection>
+
+        </main >
     </>
 }
