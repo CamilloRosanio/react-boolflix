@@ -14,9 +14,9 @@ export default function Filters(fetch1, fetch2) {
     // IMPORT CONTEXT
     const { crudIndexMovies, crudIndexSeries } = useGlobalContext();
 
+    // HANDLE SUBMIT
     const handleSubmit = (e) => {
         e.preventDefault();
-
         crudIndexMovies();
         crudIndexSeries();
     };
@@ -25,7 +25,6 @@ export default function Filters(fetch1, fetch2) {
         <form className='filters debug' onSubmit={handleSubmit}>
             <FilterSelect />
             <SearchBar />
-
             <button className="button">Search</button>
         </form>
     </>

@@ -7,8 +7,6 @@ const apiKey = import.meta.env.VITE_API_THEMOVIEDB_APIREADACCESSTOKEN;
 const apiURL = import.meta.env.VITE_API_THEMOVIEDB_APIURL;
 
 
-// # COMPONENTS IMPORT
-
 // # CONTEXT VARIABLE
 const GlobalContext = createContext();
 

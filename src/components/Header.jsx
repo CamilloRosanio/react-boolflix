@@ -7,7 +7,7 @@ import Filters from "./filters/Filters";
 export default function Header() {
     return <>
         <div className='mainBar debug'>
-            <h1 className="debug">Boolflix</h1>
+            <h1 className="">Boolflix</h1>
 
             <Filters />
 
