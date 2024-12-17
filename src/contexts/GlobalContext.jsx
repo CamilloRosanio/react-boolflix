@@ -94,6 +94,28 @@ export const GlobalContextProvider = ({ children }) => {
             .catch(err => console.error(err));
     }
 
+    // FETCH CATEGORIES
+    // const crudIndexCategories = () => {
+    //     const url = `https://api.themoviedb.org/3/search/tv?query=${searchbarValue}&language=it_IT`;
+    //     const options = {
+    //         method: 'GET',
+    //         headers: {
+    //             accept: 'application/json',
+    //             Authorization: `Bearer ${publicApiKey}`
+    //         }
+    //     };
+
+    //     fetch(url, options)
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             console.log('CRUD: Index (Fetch Series) executed.');
+    //             console.log(json.results);
+    //             const updateSeries = json.results;
+    //             setSeries(updateSeries);
+    //         })
+    //         .catch(err => console.error(err));
+    // }
+
     // USE-STATE DATA
     const globalData = {
         selectValue,
